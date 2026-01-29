@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { ChevronDown, Download, Mail } from 'lucide-react'
 import { PERSONAL_INFO } from '@/lib/constants'
+import { Button } from '@/components/ui/button'
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('')
@@ -64,20 +65,23 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up">
-              <button
+              <Button
                 onClick={() => scrollToSection('proyectos')}
-                className="btn btn-primary group"
+                size="lg"
+                className="group"
               >
                 Ver Proyectos
                 <ChevronDown className="ml-2 w-4 h-4 group-hover:translate-y-1 transition-transform" />
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={() => scrollToSection('contacto')}
-                className="btn btn-secondary group"
+                variant="outline"
+                size="lg"
+                className="group bg-white/10 border-white/20 text-white hover:bg-white hover:text-primary"
               >
                 <Mail className="mr-2 w-4 h-4" />
                 Contactar
-              </button>
+              </Button>
             </div>
           </div>
 

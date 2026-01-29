@@ -5,6 +5,10 @@ import { Mail, Phone, MapPin, Linkedin, Github, Send, CheckCircle, AlertCircle }
 import { PERSONAL_INFO } from '@/lib/constants'
 import { submitContactForm } from '@/lib/actions'
 import type { ContactFormData, ContactFormState } from '@/lib/types'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 
 const ContactSection = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -160,10 +164,13 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="card">
-            <h3 className="text-xl font-bold text-gray-900 mb-6">
-              Envíame un mensaje
-            </h3>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl">
+                Envíame un mensaje
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
 
             {/* Status Messages */}
             {formState.status === 'success' && (
@@ -186,14 +193,13 @@ const ContactSection = () => {
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                   Nombre completo *
                 </label>
-                <input
+                <Input
                   type="text"
                   id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                   placeholder="Tu nombre completo"
                   disabled={formState.status === 'loading'}
                 />
@@ -204,14 +210,13 @@ const ContactSection = () => {
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email *
                 </label>
-                <input
+                <Input
                   type="email"
                   id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                   placeholder="tu@email.com"
                   disabled={formState.status === 'loading'}
                 />
@@ -222,14 +227,13 @@ const ContactSection = () => {
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                   Asunto *
                 </label>
-                <input
+                <Input
                   type="text"
                   id="subject"
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                   placeholder="¿En qué puedo ayudarte?"
                   disabled={formState.status === 'loading'}
                 />
@@ -240,24 +244,25 @@ const ContactSection = () => {
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                   Mensaje *
                 </label>
-                <textarea
+                <Textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-none"
                   placeholder="Cuéntame sobre tu proyecto..."
                   disabled={formState.status === 'loading'}
+                  className="resize-none"
                 />
               </div>
 
               {/* Submit Button */}
-              <button
+              <Button
                 type="submit"
                 disabled={formState.status === 'loading'}
-                className="w-full btn btn-primary text-lg py-4 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full text-lg py-6"
+                size="lg"
               >
                 {formState.status === 'loading' ? (
                   <div className="flex items-center justify-center">
@@ -270,9 +275,10 @@ const ContactSection = () => {
                     Enviar Mensaje
                   </div>
                 )}
-              </button>
+              </Button>
             </form>
-          </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

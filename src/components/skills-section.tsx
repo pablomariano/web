@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import { Server, Monitor, Database, Settings } from 'lucide-react'
 import { SKILLS } from '@/lib/constants'
 import type { Skill } from '@/lib/types'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Progress } from '@/components/ui/progress'
 
 const SkillsSection = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -73,17 +75,10 @@ const SkillsSection = () => {
           <span className="text-sm font-medium text-gray-700">{skill.name}</span>
           <span className="text-sm text-gray-500">{skill.level}%</span>
         </div>
-        <div className="skill-bar">
-          <div 
-            className={`skill-progress bg-gradient-to-r ${categoryConfig[skill.category].color} ${
-              isAnimated ? 'w-full' : 'w-0'
-            }`}
-            style={{ 
-              width: isAnimated ? `${skill.level}%` : '0%',
-              transitionDelay: isAnimated ? '0ms' : '500ms'
-            }}
-          />
-        </div>
+        <Progress 
+          value={isAnimated ? skill.level : 0} 
+          className="h-3"
+        />
       </div>
     )
   }
@@ -104,28 +99,27 @@ const SkillsSection = () => {
             const IconComponent = config.icon
             
             return (
-              <div 
+              <Card 
                 key={category}
-                className="card group hover:shadow-xl transition-all duration-300"
+                className="group hover:shadow-xl transition-all duration-300"
                 style={{ animationDelay: `${categoryIndex * 150}ms` }}
               >
-                {/* Category Header */}
-                <div className="flex items-center mb-6">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${config.color} rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
-                    {config.title}
-                  </h3>
-                </div>
-
-                {/* Skills */}
-                <div>
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <div className={`w-12 h-12 bg-gradient-to-r ${config.color} rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+                    <span className="group-hover:text-primary transition-colors">
+                      {config.title}
+                    </span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
                   {categorySkills.map((skill) => (
                     <SkillBar key={skill.name} skill={skill} />
                   ))}
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             )
           })}
         </div>
