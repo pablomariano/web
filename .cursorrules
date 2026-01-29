@@ -1,0 +1,40 @@
+# Project Context
+Este proyecto es un sitio web de Portafolio/Curriculum Vitae personal.
+El objetivo es mostrar experiencia profesional, proyectos y habilidades de forma clara y atractiva.
+
+
+# Reglas Generales
+- Actúa como un experto en Ingeniería de Software.
+- Sé conciso y ve directo al grano.
+- Cuando muestres código, prefiere siempre soluciones modernas y legibles.
+
+# Tech Stack
+- Framework: Next.js 14+ (App Router).
+- Lenguaje: TypeScript.
+- Estilos: Tailwind CSS.
+- Deployment: Vercel.
+- Animaciones: Framer Motion (si aplica).
+- Iconos: Lucide React.
+
+# Reglas de Código & Estilo
+- Usa componentes funcionales de React con TypeScript interfaces para props.
+- Prefiere "Server Components" por defecto; usa "use client" solo cuando sea estrictamente necesario (interactividad).
+- Usa `kebab-case` para nombres de archivos (ej: `contact-form.tsx`).
+- Usa variables de CSS para colores en `globals.css` para soportar modo oscuro fácilmente.
+- Evita `useEffect` si puedes usar Server Actions o fetching de datos en el servidor.
+- Usa snake_case para variables.
+- Usa siempre arrow functions para componentes.
+
+# UI/UX & Diseño
+- **Mobile First:** Asegura que todo se vea perfecto en celular antes que en escritorio.
+- **Accesibilidad:** Todas las imágenes (`<Image>`) deben tener `alt`. Usa etiquetas semánticas (<section>, <article>, <main>).
+- **Tipografía:** Usa `next/font` para optimizar fuentes.
+
+# Reglas para CV y SEO
+- Asegúrate de que los textos sean profesionales y persuasivos.
+- Implementa metadatos dinámicos (Open Graph) para que se vea bien al compartir en LinkedIn.
+- Optimiza imágenes usando el componente `<Image>` de Next.js obligatoriamente.
+
+# Vercel Specifics
+# - Usa `@vercel/analytics` si necesitas trackear visitas.
+# - Usa `next.config.mjs` para configuraciones de build.

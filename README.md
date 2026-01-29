@@ -2,44 +2,45 @@
 
 ## 🚀 Analista Programador Computacional
 
-Portfolio web profesional y moderno desarrollado para mostrar las habilidades y experiencia en desarrollo full-stack, especializado en PHP/Laravel y tecnologías frontend modernas.
+Portfolio web profesional y moderno desarrollado con Next.js 15, TypeScript y Tailwind CSS, optimizado para despliegue en Vercel.
 
 ## ✨ Características
 
 ### 🎨 Diseño
 - **Diseño moderno y minimalista** con esquema de colores azules corporativos
 - **100% responsive** - optimizado para todos los dispositivos
-- **Animaciones sutiles** al hacer scroll y interacciones
-- **Tipografía moderna** usando Inter font
-- **Navegación suave** con scroll snap
+- **Animaciones fluidas** con transiciones CSS y efectos interactivos
+- **Tipografía optimizada** usando Inter font con `next/font`
+- **Navegación suave** con scroll automático
 
-### 🛠️ Tecnologías Utilizadas
-- **HTML5** semántico y accesible
-- **CSS3** moderno con variables CSS y Grid/Flexbox
-- **JavaScript ES6+** con clases y módulos
-- **Font Awesome** para iconografía
-- **Google Fonts** (Inter)
+### 🛠️ Stack Tecnológico
+- **Framework**: Next.js 15 (App Router)
+- **Lenguaje**: TypeScript
+- **Estilos**: Tailwind CSS
+- **Iconos**: Lucide React
+- **Deployment**: Vercel
+- **Analytics**: Vercel Analytics
 
 ### 📱 Funcionalidades
-- **Single Page Application** con navegación suave
-- **Formulario de contacto** funcional con validación
-- **Barras de habilidades animadas**
-- **Timeline de experiencia** interactiva
-- **Showcase de proyectos** con overlays
-- **Navegación móvil** responsive
-- **Efectos de scroll** y parallax
+- **Server Components** para mejor rendimiento
+- **Formulario de contacto** con Server Actions y validación
+- **Animaciones CSS** optimizadas y accesibles
+- **SEO optimizado** con metadatos dinámicos
+- **PWA ready** con manifest.json
+- **Modo oscuro** preparado (Tailwind CSS)
 
 ## 📋 Secciones
 
 ### 🏠 Hero/Inicio
 - Presentación impactante con animación de escritura
 - Call-to-action prominente
-- Avatar placeholder profesional
+- Avatar con elementos flotantes animados
 - Indicador de scroll animado
 
 ### 👨‍💻 Sobre Mí
 - Perfil técnico enfocado en soluciones robustas
 - Highlights de especialidades con iconos
+- Estadísticas de experiencia
 - Arquitectura MVC y desarrollo full-stack
 
 ### 💼 Experiencia
@@ -47,12 +48,14 @@ Portfolio web profesional y moderno desarrollado para mostrar las habilidades y 
 - R9 Ingeniería - Desarrollador Full-Stack
 - Municipalidad - Analista de Sistemas  
 - Proyecto de Título - MediTrack
+- Tecnologías utilizadas por proyecto
 
 ### 🎯 Habilidades Técnicas
-- **Backend**: PHP, Laravel, SQL, API REST
-- **Frontend**: React, TypeScript, JavaScript, CSS/SASS
-- **Herramientas**: Docker, Git, Testing, Inertia.js
-- Barras de progreso animadas
+- **Backend**: PHP, Laravel, Node.js, API REST
+- **Frontend**: React, TypeScript, Next.js, Tailwind CSS
+- **Database**: MySQL, SQL Server, PostgreSQL
+- **Herramientas**: Git, Docker, Testing
+- Barras de progreso animadas por categoría
 
 ### 🚀 Proyectos
 - **MediTrack** (Proyecto destacado) - Laravel 12 + React 19 + TypeScript
@@ -61,70 +64,80 @@ Portfolio web profesional y moderno desarrollado para mostrar las habilidades y 
 - Enlaces a demos y código fuente
 
 ### 📞 Contacto
-- Formulario funcional con validación
+- Formulario funcional con Server Actions
+- Validación client-side y server-side
 - Información de contacto
 - Enlaces a redes sociales
-- Notificaciones de estado
+- Estados de carga y notificaciones
 
-## 🚀 Instalación y Uso
+## 🚀 Instalación y Desarrollo
 
 ### Requisitos
-- Navegador web moderno
-- Servidor web local (opcional)
+- Node.js 18+ 
+- npm o yarn
 
 ### Instalación
-1. Clona o descarga el repositorio
-2. Abre `index.html` en tu navegador
-3. ¡Listo! El portfolio está funcionando
-
-### Desarrollo Local
 ```bash
-# Usando Python (recomendado para desarrollo)
-python -m http.server 8000
+# Clonar el repositorio
+git clone <repository-url>
+cd portfolio
 
-# Usando Node.js
-npx http-server
+# Instalar dependencias
+npm install
 
-# Usando PHP
-php -S localhost:8000
+# Ejecutar en modo desarrollo
+npm run dev
+```
+
+### Comandos Disponibles
+```bash
+# Desarrollo
+npm run dev          # Servidor de desarrollo en http://localhost:3000
+
+# Producción
+npm run build        # Construir para producción
+npm run start        # Ejecutar build de producción
+npm run lint         # Verificar código con ESLint
+npm run type-check   # Verificar tipos TypeScript
 ```
 
 ## 🎨 Personalización
 
-### Colores
-Las variables CSS están definidas en `:root` para fácil personalización:
-```css
-:root {
-    --primary-color: #2563eb;
-    --primary-dark: #1d4ed8;
-    --accent-color: #06b6d4;
-    /* ... más variables */
+### Colores y Temas
+Los colores están definidos en `tailwind.config.ts`:
+```typescript
+colors: {
+  primary: {
+    500: '#3b82f6',
+    600: '#2563eb',
+    // ...
+  }
 }
 ```
 
 ### Contenido
-- Edita `index.html` para cambiar textos y estructura
-- Modifica `styles.css` para ajustar estilos
-- Personaliza `script.js` para funcionalidades adicionales
+- Edita `src/lib/constants.ts` para cambiar información personal, experiencia y proyectos
+- Modifica componentes en `src/components/` para ajustar estructura
+- Personaliza estilos en `src/app/globals.css`
 
 ### Imágenes
-- Reemplaza el avatar placeholder con una foto real
-- Añade capturas de pantalla de proyectos
-- Optimiza imágenes para mejor rendimiento
+- Añade imágenes en la carpeta `public/`
+- Usa el componente `<Image>` de Next.js para optimización automática
+- Formatos recomendados: WebP, AVIF
 
-## 📊 Rendimiento
+## 📊 Rendimiento y SEO
 
 ### Optimizaciones Implementadas
-- **CSS optimizado** con variables y metodología BEM
-- **JavaScript modular** con clases y lazy loading
-- **Imágenes lazy loading** preparado
-- **Animaciones optimizadas** con `transform` y `opacity`
-- **Debounce/throttle** en eventos de scroll
-- **Intersection Observer** para animaciones eficientes
+- **Server Components** por defecto para mejor rendimiento
+- **Componente Image** de Next.js con lazy loading
+- **Metadatos dinámicos** para SEO
+- **Fuentes optimizadas** con `next/font`
+- **Animaciones CSS** eficientes
+- **Code splitting** automático de Next.js
 
 ### Métricas Objetivo
-- **First Contentful Paint**: < 1.5s
-- **Largest Contentful Paint**: < 2.5s
+- **First Contentful Paint**: < 1.2s
+- **Largest Contentful Paint**: < 2.0s
 - **Cumulative Layout Shift**: < 0.1
 - **First Input Delay**: < 100ms
 
@@ -132,7 +145,7 @@ Las variables CSS están definidas en `:root` para fácil personalización:
 
 ### Características Implementadas
 - **Navegación por teclado** completa
-- **Contraste adecuado** en todos los elementos
+- **Contraste adecuado** (WCAG AA)
 - **Texto alternativo** para elementos visuales
 - **Estructura semántica** HTML5
 - **Focus visible** en elementos interactivos
@@ -141,82 +154,78 @@ Las variables CSS están definidas en `:root` para fácil personalización:
 ## 🌐 Compatibilidad
 
 ### Navegadores Soportados
-- **Chrome** 70+
-- **Firefox** 65+
-- **Safari** 12+
-- **Edge** 79+
+- **Chrome** 90+
+- **Firefox** 88+
+- **Safari** 14+
+- **Edge** 90+
 
-### Características Progresivas
-- **CSS Grid** con fallback a Flexbox
-- **Intersection Observer** con fallback
-- **Scroll Snap** con polyfill
-- **Service Worker** preparado para PWA
+## 🔧 Configuración del Formulario de Contacto
 
-## 📱 Responsive Design
+El formulario usa Server Actions de Next.js. Para integrarlo con servicios de email:
 
-### Breakpoints
-- **Desktop**: 1024px+
-- **Tablet**: 768px - 1023px
-- **Mobile**: < 768px
-- **Small Mobile**: < 480px
-
-## 🔧 Configuración del Formulario
-
-El formulario de contacto está preparado para integrarse con servicios como:
-- **Formspree**
-- **Netlify Forms**
-- **EmailJS**
-- **Backend personalizado**
-
-### Ejemplo con Formspree:
-```html
-<form action="https://formspree.io/f/tu-id" method="POST">
-    <!-- campos del formulario -->
-</form>
+### Opción 1: Formspree
+```typescript
+// En src/lib/actions.ts
+const response = await fetch('https://formspree.io/f/your-form-id', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(data)
+})
 ```
 
-## 🚀 Despliegue
-
-### Opciones de Hosting
-- **Netlify** (recomendado) - Deploy automático desde Git
-- **Vercel** - Optimizado para frontend
-- **GitHub Pages** - Gratuito para repositorios públicos
-- **Firebase Hosting** - Con CDN global
-
-### Comandos de Build
+### Opción 2: SendGrid
 ```bash
-# No requiere build, archivos estáticos listos
-# Opcional: minificar para producción
-npm install -g html-minifier clean-css-cli uglify-js
+npm install @sendgrid/mail
+```
 
-html-minifier --collapse-whitespace --remove-comments index.html -o dist/index.html
-cleancss styles.css -o dist/styles.min.css
-uglifyjs script.js -o dist/script.min.js
+### Opción 3: Nodemailer
+```bash
+npm install nodemailer
+```
+
+## 🚀 Despliegue en Vercel
+
+### Deploy Automático
+1. Conecta tu repositorio a Vercel
+2. Configura las variables de entorno (si las necesitas)
+3. Deploy automático en cada push a main
+
+### Deploy Manual
+```bash
+# Instalar Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel --prod
+```
+
+### Variables de Entorno (Opcionales)
+```bash
+# Para formulario de contacto
+FORMSPREE_ENDPOINT=https://formspree.io/f/your-id
+SENDGRID_API_KEY=your-api-key
+
+# Para analytics
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 ```
 
 ## 📈 SEO y Metadatos
 
 ### Implementado
-- **Meta tags** básicos
-- **Open Graph** preparado
-- **Schema.org** structured data preparado
-- **Sitemap** generado automáticamente
+- **Meta tags** dinámicos en `layout.tsx`
+- **Open Graph** completo para redes sociales
+- **Twitter Cards** optimizadas
+- **Structured data** preparado
+- **Sitemap** generado automáticamente por Next.js
 - **Robots.txt** incluido
-
-### Para Mejorar
-- Añadir meta descripción específica
-- Implementar Open Graph completo
-- Añadir JSON-LD structured data
-- Configurar Google Analytics
-- Implementar Google Search Console
 
 ## 🔒 Seguridad
 
 ### Medidas Implementadas
-- **Content Security Policy** preparado
-- **HTTPS** requerido en producción
-- **Validación de formularios** client-side
+- **Headers de seguridad** en `vercel.json`
+- **Validación de formularios** client y server-side
 - **Sanitización** de inputs
+- **CSP** preparado para implementar
 
 ## 📞 Soporte y Contacto
 
@@ -232,5 +241,7 @@ Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
 
 ---
 
-**Desarrollado con ❤️ por Pablo Andrés Mariano M.**
+**Desarrollado con ❤️ por Pablo Andrés Mariano M.**  
 *Especialista en PHP/Laravel y desarrollo full-stack*
+
+**Stack**: Next.js 15 + TypeScript + Tailwind CSS + Vercel
