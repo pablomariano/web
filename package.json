@@ -1,0 +1,65 @@
+{
+  "name": "pablo-mariano-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio profesional de Pablo Andrés Mariano M., Analista Programador Computacional",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8000 -c-1",
+    "dev": "http-server -p 3000 -c-1 -o",
+    "build": "npm run minify",
+    "minify": "npm run minify:html && npm run minify:css && npm run minify:js",
+    "minify:html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true index.html -o dist/index.html",
+    "minify:css": "cleancss -o dist/styles.min.css styles.css",
+    "minify:js": "uglifyjs script.js -o dist/script.min.js -c -m",
+    "serve": "python -m http.server 8000",
+    "lint": "eslint script.js",
+    "validate": "html-validate index.html",
+    "lighthouse": "lighthouse http://localhost:8000 --output html --output-path ./lighthouse-report.html",
+    "deploy": "npm run build && echo 'Ready for deployment'",
+    "clean": "rm -rf dist/",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "php",
+    "laravel",
+    "react",
+    "typescript",
+    "full-stack",
+    "web-development"
+  ],
+  "author": {
+    "name": "Pablo Andrés Mariano M.",
+    "email": "pablo.mariano@email.com",
+    "url": "https://tu-dominio.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tu-usuario/portfolio/issues"
+  },
+  "homepage": "https://tu-dominio.com",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "eslint": "^8.57.0",
+    "html-minifier": "^4.0.0",
+    "html-validate": "^8.7.4",
+    "http-server": "^14.1.1",
+    "lighthouse": "^11.4.0",
+    "uglify-js": "^3.17.4"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ],
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pablo Andrés Mariano M. - Analista Programador Computacional</title>
+    <meta name="description" content="Portfolio profesional de Pablo Andrés Mariano M., especialista en PHP/Laravel y desarrollo full-stack. Experiencia en sistemas de gestión, análisis de datos y transformación digital.">
+    <meta name="keywords" content="PHP, Laravel, React, TypeScript, Full-Stack Developer, Analista Programador, Desarrollo Web, MediTrack, Chile">
+    <meta name="author" content="Pablo Andrés Mariano M.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tu-dominio.com/">
+    <meta property="og:title" content="Pablo Andrés Mariano M. - Analista Programador Computacional">
+    <meta property="og:description" content="Portfolio profesional especializado en PHP/Laravel y desarrollo full-stack">
+    <meta property="og:image" content="https://tu-dominio.com/images/og-image.jpg">
+    <meta property="og:locale" content="es_ES">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tu-dominio.com/">
+    <meta property="twitter:title" content="Pablo Andrés Mariano M. - Analista Programador Computacional">
+    <meta property="twitter:description" content="Portfolio profesional especializado en PHP/Laravel y desarrollo full-stack">
+    <meta property="twitter:image" content="https://tu-dominio.com/images/twitter-image.jpg">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="PAM Portfolio">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">PAM</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#inicio" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experiencia" class="nav-link">Experiencia</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#habilidades" class="nav-link">Habilidades</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#proyectos" class="nav-link">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="hero-greeting">Hola, soy</span>
+                        <span class="hero-name">Pablo Andrés Mariano M.</span>
+                    </h1>
+                    <h2 class="hero-subtitle">Analista Programador Computacional</h2>
+                    <p class="hero-description">
+                        Especialista en desarrollo backend con <strong>PHP/Laravel</strong> y frontend moderno con 
+                        <strong>React/TypeScript</strong>. Apasionado por crear soluciones robustas y escalables 
+                        que transforman ideas en sistemas eficientes.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+                        <a href="#contacto" class="btn btn-secondary">Contactar</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-avatar">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <a href="#sobre-mi" class="scroll-indicator">
+                    <span>Scroll</span>
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-mi" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sobre Mí</h2>
+                <p class="section-subtitle">Perfil técnico enfocado en soluciones robustas</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        Como Analista Programador Computacional, me especializo en el desarrollo de sistemas 
+                        de gestión empresarial utilizando arquitecturas MVC sólidas y tecnologías modernas.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-code"></i>
+                            <div>
+                                <h3>Backend Especializado</h3>
+                                <p>Desarrollo robusto con PHP/Laravel, implementando APIs RESTful y arquitecturas escalables</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-database"></i>
+                            <div>
+                                <h3>Gestión de Datos</h3>
+                                <p>Diseño y optimización de bases de datos SQL, análisis de datos y reporting avanzado</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <div>
+                                <h3>Frontend Moderno</h3>
+                                <p>Interfaces dinámicas con React, TypeScript e Inertia.js para experiencias fluidas</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-rocket"></i>
+                            <div>
+                                <h3>Transformación Digital</h3>
+                                <p>Modernización de procesos empresariales y migración a tecnologías actuales</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experiencia" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experiencia Profesional</h2>
+                <p class="section-subtitle">Mi trayectoria en el desarrollo de software</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Desarrollador Full-Stack</h3>
+                            <span class="timeline-company">R9 Ingeniería</span>
+                            <span class="timeline-date">2023 - Presente</span>
+                        </div>
+                        <div class="timeline-description">
+                            <p>Desarrollo de sistemas de gestión empresarial y soluciones web personalizadas.</p>
+                            <ul class="timeline-achievements">
+                                <li>Implementación de APIs RESTful con Laravel</li>
+                                <li>Desarrollo de interfaces modernas con React/TypeScript</li>
+                                <li>Optimización de consultas SQL y rendimiento de bases de datos</li>
+                                <li>Integración de sistemas legacy con tecnologías modernas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Analista de Sistemas</h3>
+                            <span class="timeline-company">Municipalidad</span>
+                            <span class="timeline-date">2022 - 2023</span>
+                        </div>
+                        <div class="timeline-description">
+                            <p>Análisis y desarrollo de sistemas para la gestión municipal y servicios ciudadanos.</p>
+                            <ul class="timeline-achievements">
+                                <li>Modernización de procesos administrativos</li>
+                                <li>Desarrollo de reportes y dashboards analíticos</li>
+                                <li>Capacitación técnica a equipos de trabajo</li>
+                                <li>Implementación de mejores prácticas de desarrollo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Proyecto de Título</h3>
+                            <span class="timeline-company">MediTrack - Sistema de Gestión Médica</span>
+                            <span class="timeline-date">2022</span>
+                        </div>
+                        <div class="timeline-description">
+                            <p>Desarrollo completo de un sistema de gestión para centros médicos utilizando tecnologías de vanguardia.</p>
+                            <ul class="timeline-achievements">
+                                <li>Laravel 12 + React 19 + TypeScript</li>
+                                <li>Arquitectura MVC con Inertia.js</li>
+                                <li>Sistema de autenticación y roles</li>
+                                <li>Gestión de citas, pacientes y historiales médicos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="habilidades" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Habilidades Técnicas</h2>
+                <p class="section-subtitle">Tecnologías y herramientas que domino</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-server"></i>
+                        Backend
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">PHP</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Laravel</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">SQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">API REST</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-laptop-code"></i>
+                        Frontend
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">React</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">TypeScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">CSS/SASS</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-tools"></i>
+                        Herramientas
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Docker</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Git</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Testing</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Inertia.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="82"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Proyectos Destacados</h2>
+                <p class="section-subtitle">Showcase de trabajos realizados</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card featured">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="Ver Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" title="Ver Código">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">MediTrack</h3>
+                            <span class="project-badge">Proyecto Destacado</span>
+                        </div>
+                        <p class="project-description">
+                            Sistema integral de gestión médica desarrollado como proyecto de título. 
+                            Incluye gestión de pacientes, citas, historiales médicos y reportes analíticos.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Laravel 12</span>
+                            <span class="tech-tag">React 19</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Inertia.js</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <div class="project-features">
+                            <ul>
+                                <li>Autenticación y sistema de roles</li>
+                                <li>Dashboard analítico en tiempo real</li>
+                                <li>API RESTful completa</li>
+                                <li>Interfaz responsive y moderna</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="Ver Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sistema de Gestión Municipal</h3>
+                        <p class="project-description">
+                            Plataforma web para la gestión de trámites y servicios municipales, 
+                            optimizando los procesos administrativos y la atención ciudadana.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="Ver Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Dashboard Analítico</h3>
+                        <p class="project-description">
+                            Sistema de reportes y análisis de datos empresariales con 
+                            visualizaciones interactivas y exportación de informes.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Chart.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contacto</h2>
+                <p class="section-subtitle">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>pablo.mariano@email.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Teléfono</h3>
+                            <p>+56 9 XXXX XXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Ubicación</h3>
+                            <p>Chile</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                        <label for="name">Nombre</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Asunto del mensaje" required>
+                        <label for="subject">Asunto</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Cuéntame sobre tu proyecto..." rows="5" required></textarea>
+                        <label for="message">Mensaje</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>Enviar Mensaje</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Pablo Andrés Mariano M. Todos los derechos reservados.</p>
+                <p>Desarrollado con <i class="fas fa-heart"></i> usando tecnologías modernas</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
