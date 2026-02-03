@@ -27,7 +27,7 @@ const AboutSection = () => {
   ]
 
   return (
-    <section id="sobre-mi" className="section-padding bg-gray-50">
+    <section id="sobre-mi" className="section-padding bg-muted bg-opacity-30">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="section-title">Sobre Mí</h2>
@@ -39,13 +39,13 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-6">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Como <span className="font-semibold text-primary-600">Analista Programador Computacional</span>, 
+            <p className="text-lg text-foreground leading-relaxed">
+              Como <span className="font-semibold text-primary">Analista Programador Computacional</span>, 
               me especializo en el desarrollo de sistemas de gestión empresarial utilizando arquitecturas MVC 
               sólidas y tecnologías modernas.
             </p>
             
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               Mi experiencia abarca desde el desarrollo backend con PHP/Laravel hasta la creación de 
               interfaces modernas con React y TypeScript. Me enfoco en crear soluciones escalables, 
               mantenibles y que aporten valor real a los procesos de negocio.
@@ -55,7 +55,7 @@ const AboutSection = () => {
               {['PHP/Laravel', 'React/TypeScript', 'MySQL', 'API REST', 'Git'].map((tech) => (
                 <span 
                   key={tech}
-                  className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium"
+                  className="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm font-medium border border-primary border-opacity-30 hover:bg-opacity-30 transition-all duration-200"
                 >
                   {tech}
                 </span>
@@ -76,14 +76,14 @@ const AboutSection = () => {
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="w-6 h-6 text-white" />
+                        <IconComponent className="w-6 h-6 text-primary-foreground" />
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
+                      <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                         {highlight.title}
                       </h3>
-                      <p className="text-sm text-gray-600 leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         {highlight.description}
                       </p>
                     </div>
@@ -107,10 +107,10 @@ const AboutSection = () => {
               className="text-center group"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="text-3xl md:text-4xl font-bold text-primary-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
                 {stat.number}
               </div>
-              <div className="text-sm text-gray-600 font-medium">
+              <div className="text-sm text-muted-foreground font-medium">
                 {stat.label}
               </div>
             </div>
