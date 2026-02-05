@@ -33,32 +33,29 @@ const HeroSection = () => {
   }
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center bg-gradient-primary overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
+    <section
+      id="inicio"
+      className="relative min-h-screen min-h-[100svh] flex items-center justify-center bg-gradient-primary"
+    >
 
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="text-center lg:text-left">
             <div className="mb-6">
-              <p className="text-lg md:text-xl text-primary-foreground opacity-80 mb-2 animate-fade-in">
+              <p className="text-lg md:text-xl text-primary-foreground/80 mb-2 animate-fade-in">
                 Hola, soy
               </p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 animate-slide-up">
                 {PERSONAL_INFO.name}
               </h1>
-              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary-foreground opacity-80 mb-6 animate-slide-up">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary-foreground/80 mb-6 animate-slide-up">
                 {PERSONAL_INFO.title}
               </h2>
             </div>
 
             <div className="mb-8 h-16 flex items-center justify-center lg:justify-start">
-              <p className="text-lg md:text-xl text-primary-foreground opacity-80 animate-slide-in-left">
+              <p className="text-lg md:text-xl text-primary-foreground/80 animate-slide-in-left">
                 {displayText}
                 <span className={`ml-1 ${isTyping ? 'animate-pulse' : 'opacity-0'}`}>|</span>
               </p>
@@ -77,7 +74,7 @@ const HeroSection = () => {
                 onClick={() => scrollToSection('contacto')}
                 variant="outline"
                 size="lg"
-                className="group bg-primary-foreground bg-opacity-10 border-primary-foreground border-opacity-20 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                className="group bg-primary-foreground/10 border-primary-foreground/25 text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary"
               >
                 <Mail className="mr-2 w-4 h-4" />
                 Contactar
@@ -86,33 +83,24 @@ const HeroSection = () => {
           </div>
 
           {/* Avatar/Image */}
-          <div className="flex justify-center lg:justify-end animate-slide-in-right">
-            <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-primary-foreground bg-opacity-10 backdrop-blur-sm border border-primary-foreground border-opacity-20 flex items-center justify-center animate-float">
-                <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full bg-primary-foreground bg-opacity-20 flex items-center justify-center">
-                  <div className="text-4xl md:text-5xl lg:text-6xl text-primary-foreground font-bold">
-                    {PERSONAL_INFO.name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                </div>
+          <div className="flex justify-center lg:justify-end">
+            <div className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 flex items-center justify-center">
+              <div className="text-3xl md:text-4xl lg:text-5xl text-primary-foreground font-bold">
+                {PERSONAL_INFO.name.split(' ').map(n => n[0]).join('')}
               </div>
-              
-              {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full animate-bounce" />
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary-foreground bg-opacity-30 rounded-full animate-bounce" style={{ animationDelay: '1s' }} />
-              <div className="absolute top-1/2 -left-8 w-4 h-4 bg-accent opacity-80 rounded-full animate-bounce" style={{ animationDelay: '2s' }} />
             </div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <button
           onClick={() => scrollToSection('sobre-mi')}
-          className="flex flex-col items-center text-primary-foreground opacity-80 hover:opacity-100 transition-all group"
+          className="flex flex-col items-center text-primary-foreground/80 hover:text-primary-foreground transition-colors"
         >
           <span className="text-sm mb-2">Scroll</span>
-          <ChevronDown className="w-6 h-6 group-hover:translate-y-1 transition-transform" />
+          <ChevronDown className="w-5 h-5" />
         </button>
       </div>
     </section>

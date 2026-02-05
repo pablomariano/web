@@ -51,7 +51,7 @@ const ProjectsSection = () => {
             {project.technologies.slice(0, 4).map((tech) => (
               <span 
                 key={tech}
-                className="px-2 py-1 bg-primary bg-opacity-10 text-primary rounded text-xs font-medium border border-primary border-opacity-20"
+                className="px-2 py-1 bg-primary bg-opacity-20 text-primary rounded text-xs font-medium border border-primary border-opacity-30 hover:bg-opacity-30 transition-all duration-200"
               >
                 {tech}
               </span>
@@ -66,7 +66,7 @@ const ProjectsSection = () => {
 
         {/* Expanded Content */}
         {isSelected && (
-          <div className="border-t border-gray-200 pt-4 mt-4 animate-slide-up">
+          <div className="border-t border-border pt-4 mt-4 animate-slide-up">
             {/* All Technologies */}
             <div className="mb-4">
               <h4 className="font-semibold text-foreground mb-2">Tecnologías completas:</h4>
@@ -74,7 +74,7 @@ const ProjectsSection = () => {
                 {project.technologies.map((tech) => (
                   <span 
                     key={tech}
-                    className="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm font-medium border border-primary border-opacity-20"
+                    className="px-3 py-1 bg-primary bg-opacity-20 text-primary rounded-full text-sm font-medium border border-primary border-opacity-30 hover:bg-opacity-30 transition-all duration-200"
                   >
                     {tech}
                   </span>
