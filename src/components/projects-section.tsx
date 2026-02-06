@@ -1,80 +1,79 @@
 'use client'
 
-import { useState } from 'react'
 import { ExternalLink, Github, Star, ChevronRight } from 'lucide-react'
 import { PROJECTS } from '@/lib/constants'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 const ProjectsSection = () => {
-  const [selectedProject, setSelectedProject] = useState<string | null>(null)
-
   const featuredProjects = PROJECTS.filter(project => project.featured)
   const otherProjects = PROJECTS.filter(project => !project.featured)
 
   const ProjectCard = ({ project, featured = false }: { project: typeof PROJECTS[0], featured?: boolean }) => {
-    const isSelected = selectedProject === project.id
-    
     return (
-      <div 
-        className={`card group cursor-pointer transition-all duration-300 ${
-          featured ? 'md:col-span-2 lg:col-span-1' : ''
-        } ${isSelected ? 'ring-2 ring-primary shadow-xl' : 'hover:shadow-xl hover:border-primary hover:border-opacity-20'}`}
-        onClick={() => setSelectedProject(isSelected ? null : project.id)}
+      <AccordionItem 
+        value={project.id}
+        className={`group border-none ${featured ? 'md:col-span-2 lg:col-span-1' : ''}`}
       >
-        {/* Project Header */}
-        <div className="flex items-start justify-between mb-4">
-          <div className="flex-1">
-            <div className="flex items-center mb-2">
-              <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                {project.title}
-              </h3>
-              {featured && (
-                <div className="ml-2 flex items-center">
-                  <Star className="w-4 h-4 text-accent fill-current" />
-                </div>
-              )}
-            </div>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              {project.description}
-            </p>
-          </div>
+        <div className="card group-hover:shadow-xl group-data-[state=open]:shadow-xl group-hover:border-primary/30 group-data-[state=open]:border-primary/50 transition-all duration-300">
           
-          <ChevronRight 
-            className={`w-5 h-5 text-muted-foreground ml-4 transition-transform duration-300 ${
-              isSelected ? 'rotate-90' : 'group-hover:translate-x-1'
-            }`} 
-          />
-        </div>
+          {/* Accordion Trigger - Project Header */}
+          <AccordionTrigger className="hover:no-underline p-0 [&[data-state=open]>div>div>h3]:text-primary">
+            <div className="flex items-start justify-between w-full text-left">
+              <div className="flex-1">
+                <div className="flex items-center mb-2">
+                  <h3 className="text-xl font-bold text-foreground transition-colors">
+                    {project.title}
+                  </h3>
+                  {featured && (
+                    <div className="ml-2 flex items-center">
+                      <Star className="w-4 h-4 text-accent fill-current" />
+                    </div>
+                  )}
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  {project.description}
+                </p>
+                
+                {/* Technologies Preview */}
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.slice(0, 4).map((tech) => (
+                    <span 
+                      key={tech}
+                      className="px-2 py-1 bg-primary/10 text-primary rounded text-xs font-medium border border-primary/20 hover:bg-primary/20 transition-all duration-200"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 4 && (
+                    <span className="px-2 py-1 bg-muted text-muted-foreground rounded text-xs">
+                      +{project.technologies.length - 4} más
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </AccordionTrigger>
 
-        {/* Technologies */}
-        <div className="mb-4">
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.slice(0, 4).map((tech) => (
-              <span 
-                key={tech}
-                className="px-2 py-1 bg-primary bg-opacity-10 text-primary rounded text-xs font-medium border border-primary border-opacity-20"
-              >
-                {tech}
-              </span>
-            ))}
-            {project.technologies.length > 4 && (
-              <span className="px-2 py-1 bg-muted text-muted-foreground rounded text-xs">
-                +{project.technologies.length - 4} más
-              </span>
-            )}
-          </div>
-        </div>
-
-        {/* Expanded Content */}
-        {isSelected && (
-          <div className="border-t border-gray-200 pt-4 mt-4 animate-slide-up">
+          {/* Accordion Content - Expanded Details */}
+          <AccordionContent className="pt-6 pb-0">
             {/* All Technologies */}
-            <div className="mb-4">
-              <h4 className="font-semibold text-foreground mb-2">Tecnologías completas:</h4>
-              <div className="flex flex-wrap gap-2">
+            <div className="mb-6">
+              <h4 className="font-semibold text-foreground mb-4 flex items-center">
+                <div className="w-4 h-4 bg-primary/20 rounded mr-2 flex items-center justify-center">
+                  <div className="w-2 h-2 bg-primary rounded-full" />
+                </div>
+                Stack tecnológico completo
+              </h4>
+              <div className="flex flex-wrap gap-2 ml-6">
                 {project.technologies.map((tech) => (
                   <span 
                     key={tech}
-                    className="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm font-medium border border-primary border-opacity-20"
+                    className="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-medium border border-primary/20 hover:bg-primary/20 hover:border-primary/30 transition-all duration-200"
                   >
                     {tech}
                   </span>
@@ -83,12 +82,15 @@ const ProjectsSection = () => {
             </div>
 
             {/* Features */}
-            <div className="mb-4">
-              <h4 className="font-semibold text-foreground mb-3">Características principales:</h4>
-              <ul className="space-y-2">
+            <div className="mb-6">
+              <h4 className="font-semibold text-foreground mb-4 flex items-center">
+                <ChevronRight className="w-4 h-4 text-primary mr-2" />
+                Características principales
+              </h4>
+              <ul className="space-y-3 ml-6">
                 {project.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start text-muted-foreground">
-                    <ChevronRight className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 mr-3 flex-shrink-0" />
                     <span className="text-sm leading-relaxed">{feature}</span>
                   </li>
                 ))}
@@ -96,35 +98,37 @@ const ProjectsSection = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-3">
-              {project.demoUrl && (
-                <a
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary text-sm"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  Ver Demo
-                </a>
-              )}
-              {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-secondary text-sm"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Github className="w-4 h-4 mr-2" />
-                  Código
-                </a>
-              )}
+            <div className="border-t border-border pt-6">
+              <div className="flex gap-3">
+                {project.demoUrl && (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary text-sm"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Ver Demo
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-secondary text-sm"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Github className="w-4 h-4 mr-2" />
+                    Código
+                  </a>
+                )}
+              </div>
             </div>
-          </div>
-        )}
-      </div>
+          </AccordionContent>
+        </div>
+      </AccordionItem>
     )
   }
 
@@ -145,13 +149,13 @@ const ProjectsSection = () => {
               <Star className="w-6 h-6 text-accent fill-current mr-2" />
               Proyecto Destacado
             </h3>
-            <div className="grid gap-8">
+            <Accordion type="multiple" className="space-y-8">
               {featuredProjects.map((project, index) => (
                 <div key={project.id} style={{ animationDelay: `${index * 200}ms` }}>
                   <ProjectCard project={project} featured />
                 </div>
               ))}
-            </div>
+            </Accordion>
           </div>
         )}
 
@@ -161,13 +165,13 @@ const ProjectsSection = () => {
             <h3 className="text-2xl font-bold text-foreground mb-8">
               Otros Proyectos
             </h3>
-            <div className="grid md:grid-cols-2 gap-8">
+            <Accordion type="multiple" className="grid md:grid-cols-2 gap-8">
               {otherProjects.map((project, index) => (
                 <div key={project.id} style={{ animationDelay: `${(index + featuredProjects.length) * 200}ms` }}>
                   <ProjectCard project={project} />
                 </div>
               ))}
-            </div>
+            </Accordion>
           </div>
         )}
 

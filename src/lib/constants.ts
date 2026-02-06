@@ -57,29 +57,131 @@ export const EXPERIENCES: Experience[] = [
 
 export const SKILLS: Skill[] = [
   // Backend
-  { name: 'PHP', level: 95, category: 'backend' },
-  { name: 'Laravel', level: 90, category: 'backend' },
-  { name: 'Node.js', level: 75, category: 'backend' },
-  { name: 'API REST', level: 90, category: 'backend' },
+  { 
+    name: 'PHP', 
+    level: 95, 
+    category: 'backend',
+    iconName: 'php',
+    color: '#777BB4'
+  },
+  { 
+    name: 'Laravel', 
+    level: 90, 
+    category: 'backend',
+    iconName: 'laravel',
+    color: '#FF2D20'
+  },
+  { 
+    name: 'Node.js', 
+    level: 75, 
+    category: 'backend',
+    iconName: 'nodedotjs',
+    color: '#339933'
+  },
+  { 
+    name: 'API REST', 
+    level: 90, 
+    category: 'backend',
+    iconName: 'fastapi',
+    color: '#009688'
+  },
   
   // Frontend
-  { name: 'React', level: 85, category: 'frontend' },
-  { name: 'TypeScript', level: 80, category: 'frontend' },
-  { name: 'JavaScript', level: 90, category: 'frontend' },
-  { name: 'Next.js', level: 75, category: 'frontend' },
-  { name: 'Tailwind CSS', level: 85, category: 'frontend' },
-  { name: 'Inertia.js', level: 80, category: 'frontend' },
+  { 
+    name: 'React', 
+    level: 85, 
+    category: 'frontend',
+    iconName: 'react',
+    color: '#61DAFB'
+  },
+  { 
+    name: 'TypeScript', 
+    level: 80, 
+    category: 'frontend',
+    iconName: 'typescript',
+    color: '#3178C6'
+  },
+  { 
+    name: 'JavaScript', 
+    level: 90, 
+    category: 'frontend',
+    iconName: 'javascript',
+    color: '#F7DF1E'
+  },
+  { 
+    name: 'Next.js', 
+    level: 75, 
+    category: 'frontend',
+    iconName: 'nextdotjs',
+    color: '#000000'
+  },
+  { 
+    name: 'Tailwind CSS', 
+    level: 85, 
+    category: 'frontend',
+    iconName: 'tailwindcss',
+    color: '#06B6D4'
+  },
+  { 
+    name: 'Inertia.js', 
+    level: 80, 
+    category: 'frontend',
+    iconName: 'inertia',
+    color: '#9553E9'
+  },
   
   // Database
-  { name: 'MySQL', level: 90, category: 'database' },
-  { name: 'SQL Server', level: 85, category: 'database' },
-  { name: 'PostgreSQL', level: 70, category: 'database' },
+  { 
+    name: 'MySQL', 
+    level: 90, 
+    category: 'database',
+    iconName: 'mysql',
+    color: '#4479A1'
+  },
+  { 
+    name: 'SQL Server', 
+    level: 85, 
+    category: 'database',
+    iconName: 'microsoftsqlserver',
+    color: '#CC2927'
+  },
+  { 
+    name: 'PostgreSQL', 
+    level: 70, 
+    category: 'database',
+    iconName: 'postgresql',
+    color: '#336791'
+  },
   
   // Tools
-  { name: 'Git', level: 85, category: 'tools' },
-  { name: 'Docker', level: 75, category: 'tools' },
-  { name: 'Testing', level: 80, category: 'tools' },
-  { name: 'Composer', level: 85, category: 'tools' }
+  { 
+    name: 'Git', 
+    level: 85, 
+    category: 'tools',
+    iconName: 'git',
+    color: '#F05032'
+  },
+  { 
+    name: 'Docker', 
+    level: 75, 
+    category: 'tools',
+    iconName: 'docker',
+    color: '#2496ED'
+  },
+  { 
+    name: 'Testing', 
+    level: 80, 
+    category: 'tools',
+    iconName: 'jest',
+    color: '#C21325'
+  },
+  { 
+    name: 'Composer', 
+    level: 85, 
+    category: 'tools',
+    iconName: 'composer',
+    color: '#885630'
+  }
 ]
 
 export const PROJECTS: Project[] = [
