@@ -22,6 +22,8 @@ export interface Skill {
   name: string
   level: number
   category: 'backend' | 'frontend' | 'tools' | 'database'
+  iconName: string
+  color: string
 }
 
 export interface Project {

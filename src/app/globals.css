@@ -194,4 +194,112 @@
   .focus-ring {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
   }
+
+  /* Estilos para el carrusel de habilidades */
+  .skills-carousel-container {
+    height: 140px;
+    display: flex;
+    align-items: center;
+  }
+
+  .skills-carousel {
+    width: max-content;
+    animation: carousel 30s linear infinite;
+    will-change: transform;
+  }
+
+  .skill-icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+  }
+
+  .skill-icon-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skill-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @keyframes carousel {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Pausa la animación al hacer hover */
+  .skills-carousel-container:hover .skills-carousel {
+    animation-play-state: paused;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .skills-carousel-container {
+      height: 120px;
+    }
+    
+    .skill-icon-container {
+      min-width: 100px;
+    }
+  }
+
+  /* Estilos para la línea de tiempo de experiencia */
+  .timeline-marker {
+    @apply absolute left-2 md:left-6 top-6 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg z-10;
+    transform: translateX(-50%);
+  }
+
+  /* Mejoras para el accordion en la timeline */
+  .timeline-marker::before {
+    content: '';
+    @apply absolute inset-0 bg-primary/20 rounded-full scale-150 opacity-0 transition-all duration-300;
+  }
+
+  .group:hover .timeline-marker::before,
+  .group[data-state="open"] .timeline-marker::before {
+    @apply opacity-100;
+    transform: scale(2);
+  }
+
+  /* Animación suave para el contenido del accordion */
+  [data-radix-accordion-content] {
+    overflow: hidden;
+  }
+
+  [data-radix-accordion-content][data-state="open"] {
+    animation: slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1);
+  }
+
+  [data-radix-accordion-content][data-state="closed"] {
+    animation: slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1);
+  }
+
+  @keyframes slideDown {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
 }
