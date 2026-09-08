@@ -1,120 +1,61 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
-import { NAVIGATION_ITEMS } from '@/lib/constants'
+import { useEffect, useState } from 'react'
 
-const Navigation = () => {
+export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('inicio')
-  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-      
-      // Update active section based on scroll position
-      const sections = NAVIGATION_ITEMS.map(item => item.href.substring(1))
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          return rect.top <= 100 && rect.bottom >= 100
-        }
-        return false
-      })
-      
-      if (currentSection) {
-        setActiveSection(currentSection)
-      }
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false)
+    }
+    const desktop = matchMedia('(min-width: 901px)')
+    const closeOnDesktop = ({ matches }: MediaQueryListEvent) => {
+      if (matches) setIsOpen(false)
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    document.addEventListener('keydown', closeOnEscape)
+    desktop.addEventListener('change', closeOnDesktop)
+    return () => {
+      document.removeEventListener('keydown', closeOnEscape)
+      desktop.removeEventListener('change', closeOnDesktop)
+    }
   }, [])
 
-  const scrollToSection = (href: string) => {
-    const element = document.getElementById(href.substring(1))
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-    setIsOpen(false)
-  }
+  useEffect(() => {
+    document.body.classList.toggle('nav-open', isOpen)
+    return () => document.body.classList.remove('nav-open')
+  }, [isOpen])
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'
-    }`}>
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <span className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-foreground' : 'text-primary-foreground'
-            }`}>
-              PAM
-            </span>
-          </div>
+    <header className="site-header">
+      <div className="header-inner">
+        <a className="brand" href="#inicio" aria-label="Pablo Mariano, inicio">
+          PAM<span>/</span>
+        </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {NAVIGATION_ITEMS.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`px-3 py-2 text-sm font-medium transition-all duration-200 hover:scale-105 ${
-                    activeSection === item.href.substring(1)
-                      ? isScrolled
-                        ? 'text-primary border-b-2 border-primary'
-                        : 'text-primary-foreground border-b-2 border-primary-foreground'
-                      : isScrolled
-                        ? 'text-foreground hover:text-primary'
-                        : 'text-primary-foreground opacity-80 hover:text-primary-foreground hover:opacity-100'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </div>
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={isOpen}
+          aria-controls="nav-menu"
+          onClick={() => setIsOpen((open) => !open)}
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </button>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-md transition-colors duration-200 ${
-                isScrolled ? 'text-foreground hover:text-primary' : 'text-primary-foreground hover:opacity-80'
-              }`}
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
+        <nav className={`site-nav${isOpen ? ' is-open' : ''}`} id="nav-menu" aria-label="Principal">
+          <a href="#trabajo" onClick={() => setIsOpen(false)}>Proyectos</a>
+          <a href="#perfil" onClick={() => setIsOpen(false)}>Perfil</a>
+          <a href="#experiencia" onClick={() => setIsOpen(false)}>Experiencia</a>
+          <a href="#contacto" onClick={() => setIsOpen(false)}>Contacto</a>
+        </nav>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden bg-card/95 backdrop-blur-md border-t border-border">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {NAVIGATION_ITEMS.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`block w-full text-left px-3 py-2 text-base font-medium transition-colors duration-200 rounded-md ${
-                    activeSection === item.href.substring(1)
-                      ? 'text-primary bg-primary bg-opacity-10'
-                      : 'text-foreground hover:text-primary hover:bg-muted'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
+        <p className="location"><span aria-hidden="true" /> Chile · Remoto</p>
       </div>
-    </nav>
+      <div className="scroll-progress" aria-hidden="true" />
+    </header>
   )
 }
-
-export default Navigation
